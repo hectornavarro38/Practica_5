@@ -1,0 +1,32 @@
+HAY 2 UMBRALIZACIONES SIMPLES
+*La umbralización simple consiste el modificar el valor de un píxel si sobrepasa el umbral establecido.
+
+
+    ret,thresh = cv2.threshold(img, umbral, valorMax , tipo)
+
+    img es la imagen gris que va a ser analizada
+    umbral es el valor indicado a analizar en cada píxel
+    valorMax Valor que se coloca a un píxel si sobrepasa el umbral
+    tipo se elige un tipo de umbralización: THRESH_BINARY, THRESH_BINARY_INV, THRESH_TRUNC, THRESH_TOZERO], THRESH_TOZERO_INV, THRESH_OTSU.
+
+    thresh imagen binarizada
+    ret valor del umbral
+
+
+*Umbralización adaptativa
+    Es una imagen que usare para mostrar como puede mejorar la umbralización con un método adaptativo.
+    A diferencia de la umbralización simple, la umbralización adaptativa no tendrá un valor umbral establecido. 
+    Sino que el “algoritmo determina el umbral de un píxel en función de una pequeña región a su alrededor. 
+    Entonces obtenemos diferentes umbrales para diferentes regiones de la misma imagen, lo que brinda mejores resultados para imágenes con iluminación variable” 1.
+    
+    #Códigos
+    cv2.THRESH_BINARY:
+     Si la intensidad de píxeles es mayor que el umbral establecido, el valor se establece en 255, de lo contrario, se establece en 0(negro).
+    cv2.THRESH_BINARY_INV:
+      Caso invertido u opuesto de cv2.THRESH_BINARY.
+    cv.THRESH_TRUNC:
+      Si el valor de la intensidad de píxeles es mayor que el umbral, se trunca al umbral. Los valores de los píxeles se establecen para que sean los mismos que el umbral. Todos los demás valores siguen siendo los mismos.
+    cv.THRESH_TOZERO:
+      La intensidad de píxeles se establece en 0, para la intensidad de todos los píxeles, menor que el valor de umbral.
+    cv.THRESH_TOZERO_INV:
+      Caso invertido u opuesto de cv2.THRESH_TOZERO.
